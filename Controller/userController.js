@@ -7,8 +7,7 @@ const userController = {
     signup :async(req,res)=>{
         try{        
             const {email, name, password} = req.body;
-            console.log(email);
-
+            
             const checkEmail = await userModel.findOne({email});
             if(checkEmail){               
                 return res.status(400).json({error : "Given mail id was already exists"})
