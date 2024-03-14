@@ -2,12 +2,12 @@ const attendenceModel = require('../Model/attendenceModel');
 
 const attendenceController = async(req,res)=>{
     try{
-        const {staffname, date, status} = req.body;
+        
+        const {date, details} = req.body;
 
-        const newAttendence = new attendenceModel({
-            staffname,
+        const newAttendence = new attendenceModel({        
             date,
-            status
+            details
         });
         const savedAttendence = await newAttendence.save();
         res.status(200).json({message:"Today attendence added", savedAttendence});
